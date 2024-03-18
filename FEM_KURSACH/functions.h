@@ -21,7 +21,7 @@ double diffusion(int omega, double r, double z) {
 
    // выбираем функцию лямбды для соответствующей области
    switch (omega) {
-   case 0: ans = r; break;
+   case 0: ans = 1; break;
 
       // Если такой области омега нет, то
    default:
@@ -52,7 +52,7 @@ double hi(int omega) {
 
    // выбираем функцию хи для соответствующей области
    switch (omega) {
-      case 0: ans = 0.001; break;
+      case 0: ans = 0.0; break;
 
          // Если такой области омега нет, то
    default:
@@ -67,7 +67,7 @@ double sigma(int omega) {
 
    // выбираем функцию сыгма для соответствующей области
    switch (omega) {
-      case 0: ans = 10; break;
+      case 0: ans = 0.0; break;
 
          // Если такой области омега нет, то
    default:
@@ -83,7 +83,7 @@ double u_g(int omega, double r, double z, double t) {
 
    // выбираем функцию уг для соответствующей области
    switch (omega) {
-   case 0: ans = r + t; break;
+   case 0: ans = z*z*z; break;
 
       // Если такой области омега нет, то
    default:
@@ -171,7 +171,7 @@ double f(int omega, double r, double z, double t) {
 
    // выбираем функцию f для соответствующей области
    switch (omega) {
-   case 0: ans = 8; break;
+   case 0: ans = -6 * z * diffusion(omega, r, z); break;
 
       // Если такой области омега нет, то
    default:
